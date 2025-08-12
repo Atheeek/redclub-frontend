@@ -13,7 +13,7 @@ import ProductGrid from "@/components/products/ProductGrid";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "ManStyle Co. — Premium Men's Fashion";
+    document.title = "Red Club — Premium Men's Fashion";
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", "Discover premium men's fashion at ManStyle Co. Shop tailored suits, shirts, and essentials.");
   }, []);
