@@ -5,7 +5,7 @@ import ProductCard, { ProductStyle } from "@/components/home/ProductCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 const fetchHomepageStyles = async () => {
   const response = await fetch(`${API_BASE_URL}/api/public/styles?limit=4`);

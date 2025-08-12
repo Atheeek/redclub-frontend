@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { MapPin } from "lucide-react";
 
-const API_BASE_URL = "http://localhost:5000";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 // Define the detailed structure we expect from the API
 interface ProductStyle {
   _id: string; name: string; description: string; imageUrls: string[];

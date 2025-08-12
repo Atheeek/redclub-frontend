@@ -2,7 +2,7 @@ import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { PlusCircle, Plus, Edit, Trash2, Package, Calendar, LogOut, X, Search, Filter, MoreVertical, Upload } from 'lucide-react';
 import { useAuth } from "@/context/AuthContext";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 // --- TypeScript Interfaces ---
 interface ProductStyle {

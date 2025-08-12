@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Search, MapPin, Tag } from "lucide-react";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 // In a real app, you would fetch these from dedicated API endpoints
 const MOCK_CATEGORIES = ["Suit", "Blazer", "Sherwanis","Kurtha", "Shirts", "Pants", "Accessories"];
