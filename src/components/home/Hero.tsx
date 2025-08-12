@@ -45,13 +45,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
 
       <div className="relative container mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
-         <h1  className="max-w-full sm:max-w-2xl lg:max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light  text-black  leading-tight tracking-wide" 
+         <h1  className="max-w-full sm:max-w-2xl lg:max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light  text-gray-600  leading-tight tracking-wide" 
             style={{fontFamily: '"Playfair Display", "Times New Roman", serif'}}>
           <span className="block sm:inline italic">Elevate Your </span>
-          <span className="block sm:inline italic text-black">Style</span>
+          <span className="block sm:inline italic text-gray-600">Style</span>
           <br className="hidden  sm:block" />
           <span className="block sm:inline italic">Redefine Your </span>
-          <span className="block sm:inline italic text-black">Confidence</span>
+          <span className="block sm:inline italic text-gray-600">Confidence</span>
         </h1>
         <p className="mt-4 max-w-xl text-base  md:text-lg text-muted-foreground">
           Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
