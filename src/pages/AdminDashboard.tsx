@@ -24,6 +24,9 @@ interface InventoryItem {
   variants: Variant[];
 }
 
+const CATEGORIES = ["Suit", "Blazer", "Sherwani", "Kurtha", "Pajama", "Pants", "Shoes", "Jodhpuri"];
+
+
 export default function AdminDashboard() {
   const { user, token, logout } = useAuth();
   const [inventory, setInventory] = useState<InventoryItem[]>([]);
@@ -143,7 +146,7 @@ export default function AdminDashboard() {
               </button>
               <button 
                 onClick={() => setIsAddModalOpen(true)} 
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5  rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <PlusCircle size={20} /> 
                 <span>Add Product</span>
@@ -435,14 +438,17 @@ const AddProductModal = ({ onClose, onSuccess }) => {
                 
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Category</label>
-                  <input 
-                    type="text" 
-                    placeholder="e.g., Sherwani, Suit, Lehenga" 
-                    value={category} 
-                    onChange={(e) => setCategory(e.target.value)} 
-                    required 
-                    className="w-full p-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-slate-50 focus:bg-white"
-                  />
+                 <select 
+                          value={category} 
+                          onChange={(e) => setCategory(e.target.value)} 
+                          required 
+                          className="w-full p-4 border  border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 bg-slate-50"
+                        >
+                            <option value="" disabled>Select a category</option>
+                            {CATEGORIES.map(cat => (
+                                  <option className="border  bg-slate-50 rounded-3xl" key={cat} value={cat}>{cat}</option>
+                            ))}
+                        </select>
                 </div>
               </div>
             </div>

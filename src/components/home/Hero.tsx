@@ -2,36 +2,56 @@ import heroImage from "@/assets/hero-mens-fashion.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Truck, Headphones, RotateCcw } from "lucide-react";
+import { useState ,useEffect} from "react";
 
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTshirt } from 'react-icons/fa';
+// import heroImage1 from "@/assets/hero-mens-fashion.jpg";
+// Add a few more high-quality images for the slider effect
+import heroImage2 from "@/assets/product1.jpg"; 
+import heroImage3 from "@/assets/p4.jpg";
+import heroImage4 from "@/assets/p1.jpg";
+// import heroImage5 from "@/assets/p2.webp";
+// import heroImage6 from "@/assets/p4.jpg";
+import heroImage7 from "@/assets/13290.jpg";
+
+const heroImages = [ heroImage2, heroImage3, heroImage4,  heroImage7];
 
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2000); // Change image every 5 seconds
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, [currentImageIndex]);
+
   return (
     <section className="relative min-h-[70vh] w-full">
-        {/* <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20">
-        <div className="flex flex-col items-center space-y-5">
-          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaFacebookF /></a>
-          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaInstagram /></a>
-          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaTiktok /></a>
-          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaYoutube /></a>
-        </div>
-      </div> */}
-      <img
-        src={heroImage}
-        alt="Premium men's fashion collection — ManStyle Co."
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+        {/* Background Image Slider */}
+      {heroImages.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt="Premium men's fashion collection"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
 
       <div className="relative container mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
-         <h1 className="max-w-full sm:max-w-2xl lg:max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-700 leading-tight tracking-wide" 
+         <h1  className="max-w-full sm:max-w-2xl lg:max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light  text-black  leading-tight tracking-wide" 
             style={{fontFamily: '"Playfair Display", "Times New Roman", serif'}}>
-          <span className="block sm:inline">Elevate Your </span>
-          <span className="block sm:inline italic text-gray-600">Style</span>
-          <br className="hidden sm:block" />
-          <span className="block sm:inline">Redefine Your </span>
-          <span className="block sm:inline italic text-gray-600">Confidence</span>
+          <span className="block sm:inline italic">Elevate Your </span>
+          <span className="block sm:inline italic text-black">Style</span>
+          <br className="hidden  sm:block" />
+          <span className="block sm:inline italic">Redefine Your </span>
+          <span className="block sm:inline italic text-black">Confidence</span>
         </h1>
         <p className="mt-4 max-w-xl text-base  md:text-lg text-muted-foreground">
           Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
@@ -44,7 +64,7 @@ export default function Hero() {
             <Link to="/collection">Explore Collection</Link>
           </Button>
         </div>
-        <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+        {/* <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
           <div className="flex items-center gap-3 rounded-md border bg-background/70 px-4 py-3 shadow-sm backdrop-blur">
             <Truck className="opacity-80" />
             <div>
@@ -66,7 +86,7 @@ export default function Hero() {
               <p className="text-xs text-muted-foreground">Hassle‑free</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
