@@ -19,6 +19,9 @@ export default {
 		},
 		extend: {
 			colors: {
+				goldbeige: "#CBB59C",
+        warmbrown: "#8B5E3C",
+        darkbrown: "#2C1B13",
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,6 +66,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			 fontFamily: {
+        serif: ["'Playfair Display'", "serif"],
+        sans: ["'Poppins'", "sans-serif"],
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
