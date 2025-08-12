@@ -60,7 +60,7 @@ export default function ProductGrid() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button asChild size="lg" className="bg-gray-800 hover:bg-gray-900 text-white rounded-lg px-8 py-6 text-base font-semibold">
+        <Button asChild size="lg" className="bg-gray-500 hover:bg-gray-900 text-white rounded-lg px-8 py-6 text-base font-semibold">
           <Link to="/collection">
             View All Collections <ArrowRight className="ml-2 h-5 w-5" />
           </Link>

@@ -3,9 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Truck, Headphones, RotateCcw } from "lucide-react";
 
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTshirt } from 'react-icons/fa';
+
+
 export default function Hero() {
   return (
     <section className="relative min-h-[70vh] w-full">
+        {/* <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20">
+        <div className="flex flex-col items-center space-y-5">
+          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaFacebookF /></a>
+          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaInstagram /></a>
+          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaTiktok /></a>
+          <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaYoutube /></a>
+        </div>
+      </div> */}
       <img
         src={heroImage}
         alt="Premium men's fashion collection — ManStyle Co."
@@ -14,18 +25,23 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
 
       <div className="relative container mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
-        <h1 className="max-w-2xl text-4xl md:text-7xl font-[400] text-gray-600 leading-tight" style={{fontFamily: '"gf_Playfair_Display variant2", Tofu'}}>
-          Redefining Luxury for Weddings & Celebrations
+         <h1 className="max-w-full sm:max-w-2xl lg:max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-700 leading-tight tracking-wide" 
+            style={{fontFamily: '"Playfair Display", "Times New Roman", serif'}}>
+          <span className="block sm:inline">Elevate Your </span>
+          <span className="block sm:inline italic text-gray-600">Style</span>
+          <br className="hidden sm:block" />
+          <span className="block sm:inline">Redefine Your </span>
+          <span className="block sm:inline italic text-gray-600">Confidence</span>
         </h1>
         <p className="mt-4 max-w-xl text-base  md:text-lg text-muted-foreground">
           Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
         </p>
         <div className="mt-8 flex gap-3">
           <Button asChild variant="hero" size="lg">
-            <Link to="/#products">Shop Now</Link>
+            <a href="#products">Shop Now</a>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link to="/about">Explore Collection</Link>
+          <Button className="hover:bg-gray-400 hover:text-white" asChild variant="outline" size="lg">
+            <Link to="/collection">Explore Collection</Link>
           </Button>
         </div>
         <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">

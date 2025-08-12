@@ -7,7 +7,7 @@ export default function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // <-- Added state
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { register } = useAuth();
@@ -46,6 +46,12 @@ export default function RegisterPage() {
             </Link>
           </p>
 
+          {/* Added Google Register Button */}
+          {/* <button className="w-full flex items-center justify-center gap-2 py-3 border border-stone-300 rounded-md hover:bg-stone-50 transition-colors">
+            <GoogleIcon className="w-5 h-5" />
+            <span className="text-sm font-semibold text-stone-700">Register with Google</span>
+          </button> */}
+
           <div className="relative flex items-center">
               <div className="flex-grow border-t border-stone-200"></div>
               <span className="flex-shrink mx-4 text-xs text-stone-400">or register with Email</span>
@@ -70,7 +76,6 @@ export default function RegisterPage() {
               className="w-full p-3 bg-stone-50 border border-stone-300 rounded-md placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-400"
             />
             
-            {/* Password with show/hide toggle */}
             <div className="relative">
               <input 
                 type={showPassword ? "text" : "password"} 

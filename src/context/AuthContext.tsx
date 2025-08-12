@@ -2,7 +2,8 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
-// --- 1. UPDATED: Interfaces to include role and branch ---
+
+// --- Interfaces ---
 interface Branch {
   _id: string;
   name: string;
@@ -12,7 +13,7 @@ interface User {
   name: string;
   email: string;
   role: 'Customer' | 'Staff' | 'Admin';
-  branch?: Branch; // Branch is optional, only for Staff/Admin
+  branch?: Branch;
 }
 interface AuthContextType {
   user: User | null;
@@ -43,7 +44,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           if (!response.ok) throw new Error('Invalid session');
           
           const data = await response.json();
-          // 2. The user object from the backend now includes role and branch
           setUser(data.data.user);
           setToken(storedToken);
         } catch (error) {
@@ -69,12 +69,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     
     localStorage.setItem('token', data.token);
     setToken(data.token);
-    
-    // 3. Store the full user object, including role and branch
     const loggedInUser: User = data.data.user;
     setUser(loggedInUser);
 
-    // 4. Redirect based on role
     if (loggedInUser.role === 'Staff' || loggedInUser.role === 'Admin') {
         navigate('/admin');
     } else {
@@ -82,8 +79,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  // ✅ FIX: Implemented the register function logic
   const register = async (name, email, password) => {
-    // ... register logic remains the same, it will create a 'Customer' by default
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to register');
+
+    // After successful registration, log the user in
+    localStorage.setItem('token', data.token);
+    setToken(data.token);
+    setUser(data.data.user);
+    navigate('/'); // Redirect to homepage
   };
 
   const logout = () => {
@@ -93,15 +103,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     navigate('/login');
   };
 
-  const value = {
-    user,
-    token,
-    isAuthenticated: !!token,
-    isLoading,
-    login,
-    register,
-    logout,
-  };
+  const value = { user, token, isAuthenticated: !!token, isLoading, login, register, logout };
 
   if (isLoading) {
     return <div className="flex items-center justify-center h-screen">Loading Application...</div>;
