@@ -8,7 +8,7 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTshirt } from 'react-i
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] w-full">
+    <section className="relative min-h-[80vh] w-full">
         <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20">
         <div className="flex flex-col items-center space-y-5">
           {/* <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaFacebookF /></a> */}
@@ -24,11 +24,11 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
 
-      <div className="relative container mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
-        <h1 className="max-w-2xl text-4xl italic md:text-7xl font-[400] text-gray-600 leading-tight" style={{fontFamily: '"gf_Playfair_Display variant2", Tofu'}}>
+      <div className="relative container  mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
+        <h1 className="max-w-2xl mt-[30vh] md:mt-[17vh] text-4xl italic md:text-7xl font-[400] text-white leading-tight" style={{fontFamily: '"gf_Playfair_Display variant2", Tofu'}}>
           Redefining Luxury for Weddings & Celebrations
         </h1>
-        <p className="mt-4 max-w-xl text-base  md:text-lg text-muted-foreground">
+        <p className="mt-4 max-w-xl text-base text-slate-50 md:text-lg text-muted-foreground">
           Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
         </p>
         <div className="mt-8 flex gap-3">

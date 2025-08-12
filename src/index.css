@@ -131,3 +131,6 @@ All colors MUST be HSL.
   font-family: 'Playfair Display', serif;
 }
 
+.bg-gold-gradient {
+  background: linear-gradient(90deg, #FFD700, #F0B429, #FFD700);
+}
