@@ -33,11 +33,11 @@ export default function Hero() {
           Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
         </p>
         <div className="mt-8 flex gap-3">
-          <Button asChild variant="hero" size="lg">
-            <Link to="/#products">Shop Now</Link>
-          </Button>
+       <Button asChild variant="hero" size="lg">
+  <a href="#products">Shop Now</a>
+</Button>
           <Button className=" border-0 hover:bg-slate-100" asChild variant="outline" size="lg">
-            <Link to="/about">Explore Collection</Link>
+            <Link to="/collection">Explore Collection</Link>
           </Button>
         </div>
         <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
