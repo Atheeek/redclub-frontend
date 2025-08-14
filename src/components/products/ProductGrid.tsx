@@ -60,11 +60,16 @@ export default function ProductGrid() {
       </div>
 
       <div className="mt-12 text-center">
-        <Button asChild size="lg" className="bg-gray-500 hover:bg-gray-900 text-white rounded-lg px-8 py-6 text-base font-semibold">
-          <Link to="/collection">
-            View All Collections <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
+<Button 
+  asChild 
+  size="lg" 
+  className="group relative overflow-hidden bg-gradient-to-b from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white rounded-2xl px-8 py-6 text-base font-[300] transition-all duration-300 ease-out transform hover:scale-[1.02] active:scale-[0.98] shadow-xl hover:shadow-2xl before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/20 before:via-transparent before:to-transparent before:opacity-30 hover:before:opacity-40 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:rounded-2xl after:border after:border-white/10 hover:after:border-white/20 after:transition-colors after:duration-300"
+>
+  <Link to="/collection" className="relative flex items-center justify-center space-x-2">
+    <span className="tracking-wide">View All Collections</span>
+    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+  </Link>
+</Button>
       </div>
     </section>
   );

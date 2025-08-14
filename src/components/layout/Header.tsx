@@ -15,10 +15,10 @@ import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext"; // 1. IMPORT and USE the AuthContext
 import logo from "/redclub2.png";
 const navItems = [
-  { label: "Home", href: "/", type: "route" },
-  { label: "Shop", href: "/#products", type: "hash" },
-  { label: "About", href: "/#testimonials", type: "hash" },
-  { label: "Contact", href: "/#footer", type: "hash" },
+  { label: "HOME", href: "/#", type: "hash" },
+  { label: "SHOP", href: "/#products", type: "hash" },
+  { label: "ABOUT", href: "/#testimonials", type: "hash" },
+  { label: "CONTACT", href: "/#footer", type: "hash" },
 ];
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
     ${isActive ? "text-black" : "text-gray-500 hover:text-black"}`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-md">
+    <header className="sticky text-[16px] top-0 z-50 w-full  text-black  bg-white backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Link to="/" aria-label="Redclub home">
@@ -43,7 +43,7 @@ export default function Header() {
                   {item.label}
                 </NavLink>
               ) : (
-                <a key={item.href} href={item.href} className="relative px-4 py-2 text-sm font-medium text-gray-500 hover:text-black">
+                <a key={item.href} href={item.href} className="relative px-4 py-2 text-sm font-medium  hover:scale-105 transition-transform duration-200">
                   {item.label}
                 </a>
               )
@@ -99,7 +99,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent>
-                <nav className="grid gap-2 mt-6">
+                <nav className="grid  gap-2 mt-6">
                   {navItems.map((item) => (
                     <NavLink key={item.href} to={item.href} className={navClass} end>
                       {item.label}

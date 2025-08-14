@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-mens-fashion.jpg";
+import heroImage from "@/assets/ChatGPT Image Aug 14, 2025, 11_29_14 AM.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Truck, Headphones, RotateCcw, Scissors, UserCheck, Gem } from "lucide-react";
@@ -22,7 +22,8 @@ export default function Hero() {
         alt="Premium men's fashion collection — ManStyle Co."
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-transparent
+" />
 
       <div className="relative container  mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
         <h1 className="max-w-2xl mt-[30vh] md:mt-[17vh] text-4xl italic text-white md:text-7xl font-[400]  leading-tight" style={{fontFamily: '"gf_Playfair_Display variant2", Tofu'}}>
@@ -123,19 +124,16 @@ export default function Hero() {
 
 //       <div className="max-w-screen-xl mx-auto px-8">
 //         {/* ===== HEADER ===== */}
-//         <header className="py-6">
+//         {/* <header className="py-6">
 //           <div className="flex justify-between items-center">
-//             {/* Left Side: Logo */}
 //             <h1 className="text-2xl font-bold">ManStyle Co.</h1>
             
-//             {/* Middle: Primary Navigation */}
 //             <nav className="hidden md:flex space-x-8">
 //               <a href="#" className="hover:text-gray-300">HOME</a>
 //               <a href="#" className="hover:text-gray-300">SHOP</a>
 //               <a href="#" className="hover:text-gray-300">CONTACT US</a>
 //             </nav>
 
-//             {/* Right Side: User Actions */}
 //             <div className="flex items-center space-x-5">
 //               <span className="text-sm">HELLO ANARDA</span>
 //               <button className="hover:text-gray-300"><FiSearch size={20} /></button>
@@ -143,10 +141,10 @@ export default function Hero() {
 //               <button className="hover:text-gray-300"><FiShoppingCart size={20} /></button>
 //             </div>
 //           </div>
-//         </header>
+//         </header> */}
 
 //         {/* ===== SECONDARY NAVIGATION BAR ===== */}
-//         <nav className="py-4 border-t border-b border-gray-700">
+//         {/* <nav className="py-4 border-t border-b border-gray-700">
 //           <div className="flex justify-center items-center space-x-8">
 //             <NavLink hasDropdown>SHIRTS</NavLink>
 //             <NavLink>T-SHIRTS</NavLink>
@@ -158,10 +156,10 @@ export default function Hero() {
 //             <NavLink hasDropdown>UNDERWEAR</NavLink>
 //             <NavLink hasDropdown>ACCESSORIES</NavLink>
 //           </div>
-//         </nav>
+//         </nav> */}
 
 //         {/* ===== HERO SECTION ===== */}
-//         <main className="relative mt-8">
+//         <main className="relative ">
 //           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
             
 //             {/* Left Side: Text Content */}

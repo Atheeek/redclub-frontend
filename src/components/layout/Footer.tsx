@@ -7,7 +7,7 @@ export default function Footer() {
     <footer id="footer" className=" border-t mt-16">
       <div className="container mx-auto grid gap-8 py-10 md:grid-cols-4">
         <div>
-          <h3 className="text-lg font-semibold">ManStyle Co.</h3>
+          <h3 className="text-lg font-semibold">RedClub Co.</h3>
           <p className="mt-3 text-sm text-muted-foreground">
             Premium men's fashion for modern gentlemen.
           </p>
@@ -24,7 +24,7 @@ export default function Footer() {
         <div>
           <h4 className="font-medium">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li>support@manstyle.co</li>
+            <li>support@redclub.co</li>
             <li>+1 (555) 000-1234</li>
           </ul>
         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} ManStyle Co. All rights reserved.</div>
+      <div className="border-t py-4 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Redclub All rights reserved.</div>
     </footer>
   );
 }
