@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
         <div className="text-center max-w-5xl">
           {/* Luxury Badge */}
           <div className="mb-8 opacity-0 animate-[fadeInUp_1.2s_ease-out_0.2s_forwards]">
-            <div className="inline-flex mt-48 items-center gap-2 px-6 py-2 border border-amber-500/30 rounded-full bg-black/20 backdrop-blur-sm">
+            <div className="inline-flex mt-52 items-center gap-2 px-6 py-2 border border-amber-500/30 rounded-full bg-black/20 backdrop-blur-sm">
               <Sparkles size={16} className="text-amber-500" />
               <span className="text-gold-gradient text-xs tracking-[0.3em] uppercase font-light">
                 Est. Premium Collection

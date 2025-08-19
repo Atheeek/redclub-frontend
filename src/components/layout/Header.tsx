@@ -122,8 +122,7 @@ export default function Header({ initialTransparent = false }: HeaderProps) {
         <div className="flex lg:hidden items-center">
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" aria-label="Open menu" className="border-gray-700 bg-black text-gray-300 hover:bg-gray-800 hover:text-white">
-                <Menu size={20} />
+<Button size="icon" variant="outline" aria-label="Open menu" className="border-gray-700 bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white">                <Menu size={20} />
               </Button>
             </SheetTrigger>
             <SheetContent className="bg-black border-gray-800 text-white">
