@@ -1,37 +1,35 @@
-import { useEffect } from "react";
+// in your Index.tsx file
 import Hero from "@/components/home/Hero";
-// We don't need ProductCard or the static products import here anymore
-
 import CategoryGrid from "@/components/home/CategoryGrid";
 import SaleBanner from "@/components/home/SaleBanner";
 import Testimonials from "@/components/home/Testimonials";
 import FeaturedSplit from "@/components/home/FeaturedSplit";
 import NewsletterBand from "@/components/home/NewsletterBand";
-
-// 1. Import the ProductGrid component we created
 import ProductGrid from "@/components/products/ProductGrid"; 
+import Header from "@/components/layout/Header";
 
 const Index = () => {
-  useEffect(() => {
-    document.title = "Red Club — Premium Men's Fashion";
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", "Discover premium men's fashion at ManStyle Co. Shop tailored suits, shirts, and essentials.");
-  }, []);
+  // ... your useEffect hook ...
 
   return (
-    <main className="">
-      <Hero />
-      <CategoryGrid />
+    // NOTE: The <main> tag is now the scrolling container
+    <main>
+      {/* 1. Render the Header on its own. It will stick to <main>. */}
+      <Header initialTransparent={true} />
 
-      {/* 2. REMOVE the old static section and REPLACE it with the ProductGrid component.
-        This component now contains all the logic for fetching and displaying products.
+      {/* 2. Wrap ALL page content AFTER the header in a div. */}
+      {/* 3. Pull this content up behind the header with a negative margin.
+         The header is h-20 (5rem), so we use -mt-20.
       */}
-      <ProductGrid />
-
-      <SaleBanner />
-      <Testimonials />
-      <FeaturedSplit />
-      <NewsletterBand />
+      <div className="-mt-20">
+        <Hero />
+        <CategoryGrid />
+        <ProductGrid />
+        <SaleBanner />
+        <Testimonials />
+        <FeaturedSplit />
+        <NewsletterBand />
+      </div>
     </main>
   );
 };

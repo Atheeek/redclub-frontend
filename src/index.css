@@ -53,6 +53,13 @@ All colors MUST be HSL.
     --font-display: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,"Playfair Display", serif;;
   }
 
+.text-gold-gradient {
+  background-image: linear-gradient(to right, #FBBF24, #B45309); /* amber-400 to amber-700 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -134,3 +141,34 @@ All colors MUST be HSL.
 .bg-gold-gradient {
   background: linear-gradient(90deg, #FFD700, #F0B429, #FFD700);
 }
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Slides by the width of the initial 4 images */
+    transform: translateX(-400vw); 
+  }
+}
+
+/* Class to apply the animation */
+.sliding-background {
+  display: flex;
+  /* Width is now 8 images wide (4 original + 4 duplicates) */
+  width: 800vw; 
+  animation: slide 40s linear infinite;
+}
+
+
+
+         @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }

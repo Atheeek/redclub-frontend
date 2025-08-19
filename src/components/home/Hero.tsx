@@ -1,241 +1,124 @@
-import heroImage from "@/assets/ChatGPT Image Aug 14, 2025, 11_29_14 AM.png";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { Truck, Headphones, RotateCcw, Scissors, UserCheck, Gem } from "lucide-react";
+import React from 'react';
+import { ChevronDown, Sparkles } from 'lucide-react';
+import img from '/logo.png';
+import { Link } from 'react-router-dom';
 
-import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTshirt } from 'react-icons/fa';
-
-
-export default function Hero() {
-  return (
-    <section className="relative min-h-[80vh] w-full">
-        <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20">
-        <div className="flex flex-col items-center space-y-5">
-          {/* <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaFacebookF /></a> */}
-          {/* <a href="https://www.instagram.com/redclub_wedding/" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaInstagram /></a> */}
-          {/* <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaTiktok /></a> */}
-          {/* <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaYoutube /></a> */}
-        </div>
-      </div>
-      <img
-        src={heroImage}
-        alt="Premium men's fashion collection — ManStyle Co."
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-transparent
-" />
-
-      <div className="relative container  mx-auto flex min-h-[70vh] flex-col items-start justify-center py-20">
-        <h1 className="max-w-2xl mt-[30vh] md:mt-[17vh] text-4xl italic text-white md:text-7xl font-[400]  leading-tight" style={{fontFamily: '"gf_Playfair_Display variant2", Tofu'}}>
-          Redefining Luxury for Weddings & Celebrations
-        </h1>
-        <p className="mt-4 max-w-xl text-base text-slate-50 md:text-lg text-muted-foreground">
-          Discover our curated collection of suits, shirts, and essentials crafted for modern gentlemen.
-        </p>
-        <div className="mt-8 flex gap-3">
-       <Button asChild variant="hero" size="lg">
-  <a href="#products">Shop Now</a>
-</Button>
-          <Button className=" border-0 hover:bg-slate-100" asChild variant="outline" size="lg">
-            <Link to="/collection">Explore Collection</Link>
-          </Button>
-        </div>
-        <div className="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
-          <div className="flex items-center gap-3 rounded-md border bg-background/70 px-4 py-3 shadow-sm backdrop-blur">
-            <Scissors className="opacity-80" />
-            <div>
-              <p className="text-sm font-medium">Expert Tailorin</p>
-              <p className="text-xs text-muted-foreground">Perfect fit for your big day</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 rounded-md border bg-background/70 px-4 py-3 shadow-sm backdrop-blur">
-            <Gem className="opacity-80" />
-            <div>
-              <p className="text-sm font-medium">Premium Fabrics</p>
-              <p className="text-xs text-muted-foreground">Luxury materials you’ll feel</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 rounded-md border bg-background/70 px-4 py-3 shadow-sm backdrop-blur">
-            <UserCheck className="opacity-80" />
-            <div>
-              <p className="text-sm font-medium">Personal Styling</p>
-              <p className="text-xs text-muted-foreground">Guidance from wedding experts</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+// 1. Define props to accept children
+interface HeroSectionProps {
+  children: React.ReactNode;
 }
 
+// 2. Update the component to accept the children prop
+const HeroSection: React.FC = () => {
+  const scrollToProducts = () => {
+    document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-// Filename: ManStylePage.tsx
+  return (
+    <div className="relative h-screen  w-full overflow-hidden">
+      {/* 3. Render the children (the Header will go here) */}
 
-// import React from 'react';
+      {/* Background Image with Parallax Effect */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat -110 transition-transform duration-1000 ease-out"
+        style={{
+          backgroundImage: `url(${img})`,
+        }}
+      />
 
-// // Importing icons from react-icons
-// import { 
-//     FiSearch, 
-//     FiHeart, 
-//     FiShoppingCart, 
-//     FiChevronDown,
-//     FiCheckCircle,
-//     FiCreditCard,
-//     FiTruck
-// } from 'react-icons/fi';
-// import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTshirt } from 'react-icons/fa';
-// import { BiMessageAltDetail } from 'react-icons/bi';
+      {/* Gradient Overlays for Depth */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40" />
 
-// // Helper component for Navigation Links for better readability
-// const NavLink = ({ children, hasDropdown = false }: { children: React.ReactNode; hasDropdown?: boolean }) => (
-//   <a href="#" className="flex items-center space-x-2 text-sm text-gray-300 hover:text-white transition-colors">
-//     <span>{children}</span>
-//     {hasDropdown && <FiChevronDown size={14} />}
-//   </a>
-// );
+      {/* Decorative Elements (Changed to amber) */}
+      <div className="absolute top-10 left-10 text-amber-500/20 opacity-0 animate-[fadeIn_2s_ease-out_1.5s_forwards]">
+        <Sparkles size={24} />
+      </div>
+      <div className="absolute top-32 right-16 text-amber-500/20 opacity-0 animate-[fadeIn_2s_ease-out_2s_forwards]">
+        <Sparkles size={16} />
+      </div>
+      <div className="absolute bottom-32 left-20 text-amber-500/20 opacity-0 animate-[fadeIn_2s_ease-out_2.5s_forwards]">
+        <Sparkles size={20} />
+      </div>
 
-// // Helper component for Feature items at the bottom
-// const FeatureItem = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-//     <div className="flex items-start space-x-4">
-//         <div className="text-3xl text-gray-400 mt-1">
-//             {icon}
-//         </div>
-//         <div>
-//             <h3 className="font-semibold text-white">{title}</h3>
-//             <p className="text-gray-400 text-sm">{description}</p>
-//         </div>
-//     </div>
-// );
+      {/* Content Container */}
+      {/* 4. Added -mt-20 to pull content up, accounting for the header's height */}
+      <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6 lg:px-8 -mt-20">
+        <div className="text-center max-w-5xl">
+          {/* Luxury Badge */}
+          <div className="mb-8 opacity-0 animate-[fadeInUp_1.2s_ease-out_0.2s_forwards]">
+            <div className="inline-flex mt-48 items-center gap-2 px-6 py-2 border border-amber-500/30 rounded-full bg-black/20 backdrop-blur-sm">
+              <Sparkles size={16} className="text-amber-500" />
+              <span className="text-gold-gradient text-xs tracking-[0.3em] uppercase font-light">
+                Est. Premium Collection
+              </span>
+            </div>
+          </div>
 
-// // Main Page Component
-// const ManStylePage = () => {
-//   return (
-//     <div className="bg-[#111111] text-white min-h-screen font-sans">
-      
-//       {/* ===== SOCIAL LINKS SIDEBAR ===== */}
-//       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20">
-//         <div className="flex flex-col items-center space-y-5">
-//           <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaFacebookF /></a>
-//           <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaInstagram /></a>
-//           <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaTiktok /></a>
-//           <a href="#" className="p-2 rounded-full hover:bg-gray-700 transition-colors"><FaYoutube /></a>
-//         </div>
-//       </div>
+          {/* Main Headline with Enhanced Typography */}
+          <h1 className="mb-6 font-serif text-white leading-tight">
+            <div className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-normal mb-2 opacity-0 animate-[fadeInUp_1.5s_ease-out_0.4s_forwards] tracking-[0.1em]">
+              <span className="inline-block transform hover:scale-105 transition-transform duration-300">RED</span>
+              <span className="text-gold-gradient inline-block transform hover:scale-105 transition-transform duration-300">CLUB</span>
+            </div>
+            <div className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-light tracking-[0.4em] opacity-0 animate-[fadeInUp_1.5s_ease-out_0.6s_forwards] text-gray-200">
+              MEN'S WEDDING LOUNGE
+            </div>
+          </h1>
 
-//       <div className="max-w-screen-xl mx-auto px-8">
-//         {/* ===== HEADER ===== */}
-//         {/* <header className="py-6">
-//           <div className="flex justify-between items-center">
-//             <h1 className="text-2xl font-bold">ManStyle Co.</h1>
-            
-//             <nav className="hidden md:flex space-x-8">
-//               <a href="#" className="hover:text-gray-300">HOME</a>
-//               <a href="#" className="hover:text-gray-300">SHOP</a>
-//               <a href="#" className="hover:text-gray-300">CONTACT US</a>
-//             </nav>
+          {/* Enhanced Subtext with Line Decoration */}
+          <div className="mb-12 opacity-0 animate-[fadeInUp_1.5s_ease-out_0.8s_forwards]">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-600"></div>
+              <div className="w-2 h-2 bg-amber-600 rotate-45"></div>
+              <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-600"></div>
+            </div>
+            <p className="text-gold-gradient text-base md:text-lg lg:text-xl font-serif tracking-[0.3em] uppercase">
+              Where Royalty Meets Elegance
+            </p>
+          </div>
 
-//             <div className="flex items-center space-x-5">
-//               <span className="text-sm">HELLO ANARDA</span>
-//               <button className="hover:text-gray-300"><FiSearch size={20} /></button>
-//               <button className="hover:text-gray-300"><FiHeart size={20} /></button>
-//               <button className="hover:text-gray-300"><FiShoppingCart size={20} /></button>
-//             </div>
-//           </div>
-//         </header> */}
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-[fadeInUp_1.5s_ease-out_1s_forwards]">
+            <Link to="/collection">
+              <button className="group px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-sm md:text-base font-serif tracking-[0.2em] uppercase transition-all duration-500 transform hover:scale-105 rounded-full hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] font-medium relative overflow-hidden">
+                <span className="relative z-10">Explore Collection</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+            </Link>
 
-//         {/* ===== SECONDARY NAVIGATION BAR ===== */}
-//         {/* <nav className="py-4 border-t border-b border-gray-700">
-//           <div className="flex justify-center items-center space-x-8">
-//             <NavLink hasDropdown>SHIRTS</NavLink>
-//             <NavLink>T-SHIRTS</NavLink>
-//             <NavLink>BLAZERS</NavLink>
-//             <NavLink hasDropdown>SUITS</NavLink>
-//             <NavLink hasDropdown>POLO</NavLink>
-//             <NavLink>KNITWEAR</NavLink>
-//             <NavLink hasDropdown>PANTS</NavLink>
-//             <NavLink hasDropdown>UNDERWEAR</NavLink>
-//             <NavLink hasDropdown>ACCESSORIES</NavLink>
-//           </div>
-//         </nav> */}
+            <button className="group px-10 py-4 bg-transparent text-sm md:text-base font-serif tracking-[0.2em] uppercase transition-all duration-500 transform hover:scale-105 rounded-full border-2 border-amber-600 hover:bg-amber-600/10 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] relative overflow-hidden">
+              <span className="text-gold-gradient relative z-10 transition-colors duration-300">Book Consultation</span>
+            </button>
+          </div>
 
-//         {/* ===== HERO SECTION ===== */}
-//         <main className="relative ">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
-            
-//             {/* Left Side: Text Content */}
-//             <div className="space-y-6 z-10">
-//               <h2 className="text-7xl font-serif font-medium leading-tight">
-//                 Elevate Your Style <br />
-//                 Redefine Your <br />
-//                 Confidence
-//               </h2>
-//               <p className="text-gray-400 max-w-md">
-//                 Discover timeless designs crafted for the modern gentleman. From tailored fits to luxurious details, redefine your wardrobe with essentials that inspire confidence and sophistication.
-//               </p>
-//               <button className="bg-[#a89580] text-black font-bold py-3 px-8 hover:bg-opacity-90 transition-colors">
-//                 SHOP NOW
-//               </button>
-              
-//               {/* Pagination */}
-//               <div className="flex items-center space-x-4 pt-8">
-//                 <span className="text-lg">01</span>
-//                 <div className="w-24 h-px bg-gray-600 relative">
-//                     <div className="absolute left-0 top-0 h-full bg-white w-1/4"></div>
-//                 </div>
-//                 <span className="text-lg text-gray-500">04</span>
-//               </div>
-//             </div>
+          {/* Trust Indicators */}
+          <div className="mt-16 opacity-0 animate-[fadeInUp_1.5s_ease-out_1.2s_forwards]">
+            <div className="flex items-center justify-center gap-8 text-gray-400 text-xs tracking-wider uppercase">
+              <span>Premium Quality</span>
+              <div className="w-px h-4 bg-gray-600"></div>
+              <span>Custom Tailoring</span>
+              <div className="w-px h-4 bg-gray-600"></div>
+              <span>Royal Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-//             {/* Right Side: Image and Cards */}
-//             <div className="relative">
-//                 {/* NOTE: You should replace this placeholder URL with the actual path to your image.
-//                   The original image has a transparent background (PNG).
-//                 */}
-//               <img 
-//                 src="hero-mens-fashion.jpg" 
-//                 alt="Man in a tailored pinstripe suit"
-//                 className="w-full h-auto object-cover" 
-//               />
-//               <div className="absolute bottom-16 right-0 bg-black bg-opacity-50 backdrop-blur-sm p-4 rounded-lg text-right">
-//                 <p className="text-xs text-gray-400">OUTERWEAR</p>
-//                 <h4 className="font-semibold">PREMIUM DOUBLE-BREASTED</h4>
-//                 <h4 className="font-semibold">TAILORED BLAZER</h4>
-//               </div>
-//             </div>
-//           </div>
-//           <button className="absolute bottom-0 right-1/4 -mr-16 bg-[#a89580] p-4 rounded-full text-black hover:bg-opacity-90 transition-colors z-20">
-//               <BiMessageAltDetail size={24} />
-//           </button>
-//         </main>
-//       </div>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-[fadeIn_2s_ease-out_2s_forwards]">
+        <button
+          onClick={scrollToProducts}
+          className="flex flex-col items-center group"
+          aria-label="Scroll to products"
+        >
+          <span className="text-gold-gradient text-xs tracking-wider uppercase mb-2 font-light transition-opacity duration-300 group-hover:opacity-80">Discover</span>
+          <ChevronDown size={20} className="text-amber-500 animate-bounce group-hover:animate-pulse" />
+        </button>
+      </div>
 
-//       {/* ===== FEATURES SECTION ===== */}
-//       <footer className="bg-[#1a1a1a] mt-24 py-12">
-//         <div className="max-w-screen-xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-//             <FeatureItem
-//                 icon={<FiCheckCircle />}
-//                 title="Satisfaction Guarantee"
-//                 description="Non-conforming items can be returned within 7 days"
-//             />
-//             <FeatureItem
-//                 icon={<FaTshirt />}
-//                 title="Size Consultation"
-//                 description="We can help you finding the right size"
-//             />
-//             <FeatureItem
-//                 icon={<FiCreditCard />}
-//                 title="Easy Payment Options"
-//                 description="Check out payment with your favourite method"
-//             />
-//             <FeatureItem
-//                 icon={<FiTruck />}
-//                 title="On-Time Shipping"
-//                 description="Order will shipped on the same day"
-//             />
-//         </div>
-//       </footer>
-//     </div>
-//   );
-// };
+    </div>
+  );
+};
 
-// export default ManStylePage;
+export default HeroSection;
