@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NewsletterBand() {
   return (
-    <section className="relative pb-28 mt-16">
+    <section className="relative  pb-28 mt-16">
       <img
         src={shoes}
         alt="Leather shoes on satin fabric — ManStyle Co."
